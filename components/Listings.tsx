@@ -1,10 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, FlatList } from 'react-native'
+import React, { useEffect } from 'react'
+import { defaultStyles } from '@/constants/Styles';
 
-const Listings = () => {
+interface Props{
+  listings: any[];
+  category: string;
+
+}
+
+const Listings = ({listings, category}: Props) => {
+  useEffect(()=>{
+    console.log(listings.length)
+  },[category])
   return (
-    <View >
-      <Text>Listings</Text>
+    <View style={defaultStyles.container} >
+      <FlatList/>
+
     </View>
   )
 }
