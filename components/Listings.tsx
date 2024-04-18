@@ -3,6 +3,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import { defaultStyles } from '@/constants/Styles';
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import Animated, { BounceOut, FadeIn, FadeInLeft, FadeInRight, FadeOut } from 'react-native-reanimated';
+import { Fade } from '@mui/material';
 
 
 
@@ -27,7 +29,7 @@ const Listings = ({ listings: items, category }: Props) => {
   const renderRow: ListRenderItem<any> = ({ item }) => (
     <Link href={`/listing/${item.id}`} asChild>
       <TouchableOpacity>
-        <View style={styles.listing}>
+        <Animated.View style={styles.listing} entering={FadeIn} exiting={FadeOut}>
           <Image source={{ uri: item.medium_url }} style={styles.image} />
           <TouchableOpacity style={{
             position: 'absolute',
@@ -50,7 +52,7 @@ const Listings = ({ listings: items, category }: Props) => {
               <Text style={{fontFamily:'mon'}}>/ Nuit</Text>
 
             </View>
-        </View>
+        </Animated.View>
       </TouchableOpacity>
     </Link>
   )
