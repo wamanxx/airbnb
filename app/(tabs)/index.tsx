@@ -23,7 +23,7 @@ const Page = () => {
         }} />
       {/* <Listings listings={items} category={category} /> */}
       <ListingsMap listings={ListingsDataGeo}/>
-      <ListingBottomSheet listings={items} category={category}/>
+      {/* <ListingBottomSheet listings={items} category={category}/> */}
     </View>
   )
 }
